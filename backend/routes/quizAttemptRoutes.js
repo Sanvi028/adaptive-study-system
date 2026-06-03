@@ -94,4 +94,25 @@ router.post("/submit", async (req, res) => {
   }
 });
 
+router.get("/history/:userId", async (req, res) => {
+  try {
+    const { userId } = req.params;
+
+    const attempts = await QuizAttempt.find({ userId })
+      .sort({ createdAt: -1 });
+
+    res.json({
+      success: true,
+      count: attempts.length,
+      data: attempts,
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+});
+
 module.exports = router;
