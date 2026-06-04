@@ -10,6 +10,7 @@ const questionRoutes = require("./routes/questionRoutes");
 const quizAttemptRoutes = require("./routes/quizAttemptRoutes");
 const analyticsRoutes = require("./routes/analyticsRoutes");
 const recommendationRoutes = require("./routes/recommendationRoutes");
+const aiTutorRoutes = require("./routes/aiTutorRoutes");
 
 
 app.use(cors());
@@ -22,6 +23,8 @@ app.use("/api/questions", questionRoutes);
 app.use("/api/quiz", quizAttemptRoutes);
 app.use("/api/analytics", analyticsRoutes); 
 app.use("/api/recommendations",recommendationRoutes);
+app.use("/api/ai",aiTutorRoutes);
+
 
 
 
